@@ -58,6 +58,8 @@ jobs:
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tinytex: true
 
@@ -73,7 +75,7 @@ jobs:
             website
           extra-packages: |
             d-morrison/altdoc@recursive-qmd-search
-            quarto-dev/quarto
+            quarto-dev/quarto-r
             any::sessioninfo
             local::.
 

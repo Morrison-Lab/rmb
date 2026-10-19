@@ -1,5 +1,13 @@
 # rmb (development version)
 
+* The docs workflow installs the R package from `quarto-dev/quarto-r`,
+  because `quarto-dev/quarto` has no R package and failed dependency
+  resolution ([`gha#1137`](https://github.com/Morrison-Lab/gha/issues/1137)).
+
+* The documentation check no longer fails when a newer `roxygen2` only rewrites
+  the `Config/roxygen2/version` or `RoxygenNote` field in `DESCRIPTION`.
+  It still fails on any other change to `DESCRIPTION`, `NAMESPACE`, or `man/`.
+
 - Replaced hand-built Kaplan-Meier and linear-model diagnostic plots
   with package helpers (`survminer::ggsurvplot()` and
   `ggplot2::autoplot()`, with `{ggfortify}` supplying the S3 method)
