@@ -2,7 +2,7 @@
 
 * The docs workflow installs the R package from `quarto-dev/quarto-r`,
   because `quarto-dev/quarto` has no R package and failed dependency
-  resolution (gha#1137).
+  resolution (`gha#1137`).
 
 * The documentation check no longer fails when a newer `roxygen2` only rewrites
   the `Config/roxygen2/version` or `RoxygenNote` field in `DESCRIPTION`.
