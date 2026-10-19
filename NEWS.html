@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -39,14 +42,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-23063a2ee913c99e939777d405b9c457.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-02da43bb2c35d8eb1545a06609d290ab.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-23063a2ee913c99e939777d405b9c457.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-a1f2b8334812b879982eb28c89045848.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-1dc69cd67380efe5eefd319c624a3366.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-a1f2b8334812b879982eb28c89045848.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -835,31 +838,33 @@ ul.task-list li input[type="checkbox"] {
 <section id="rmb-development-version" class="level1">
 <h1>rmb (development version)</h1>
 <ul>
-<li>Replaced hand-built Kaplan-Meier and linear-model diagnostic plots with package helpers (<code>survminer::ggsurvplot()</code> and <code>ggplot2::autoplot()</code>, with <code>{ggfortify}</code> supplying the S3 method) where available, while retaining consistent <code>ggplot2</code> styling across dataset vignettes.</li>
-<li>Replaced all 26 <code>{mermaid}</code> causal DAGs in dataset vignettes with R-rendered <a href="https://r-causal.github.io/ggdag/"><code>{ggdag}</code></a> plots for consistent, reproducible visualization. Added <code>ggdag</code> to <code>DESCRIPTION Suggests</code>.</li>
-<li>Bumped development version to <code>0.0.0.9018</code>.</li>
-<li>Added swimmer plots to all longitudinal dataset vignettes (<code>dataset-leuk.qmd</code>, <code>dataset-actg019.qmd</code>, <code>dataset-mira_hsv.qmd</code>, <code>dataset-sof2.qmd</code>, <code>dataset-hers_nodm_longitudinal.qmd</code>, <code>dataset-fecfat.qmd</code>) using the <a href="https://github.com/biostatsPMH/swimplot"><code>{swimplot}</code></a> package. Large cohorts are subsetted for legibility.</li>
-<li>Bumped development version to <code>0.0.0.9016</code>.</li>
-<li>Restructured all 26 dataset vignettes as mini-journal articles with four standard sections: Introduction, Methods, Results, and Discussion. Each article includes a dataset-specific causal DAG, targeted statistical analysis, and scientific interpretation anchored to the relevant RMB2e chapter.</li>
-<li>Corrected invalid DOI links in dataset metadata and dataset documentation for WCGS, MIRA, and SOF/SOF2.</li>
-<li>Bumped development version to <code>0.0.0.9015</code>.</li>
-<li>Expanded all dataset vignettes from a single generic model to an RMB2e workflow with interleaved prose and stepwise modeling sections (research question, EDA, specification, estimation, adequacy checks, inference, conclusions), organized by dataset.</li>
-<li>Added conceptual DAGs and updated tests to verify the new workflow structure across dataset vignettes.</li>
-<li>Bumped development version to <code>0.0.0.9014</code>.</li>
-<li>Added all dataset vignettes to the documentation website navigation and removed placeholder Quarto vignette/article files.</li>
-<li>Bumped development version to <code>0.0.0.9013</code>.</li>
-<li>Added dataset roxygen <code>Study design</code> blurbs for all packaged datasets and regenerated dataset Rd files.</li>
-<li>Bumped development version to <code>0.0.0.9012</code>.</li>
-<li>Updated documentation check workflow to configure Git safe.directory using <code>$GITHUB_WORKSPACE</code>.</li>
-<li>Updated spellcheck wordlist with dataset-domain terms used across Rd and vignette sources.</li>
-<li>Switched from pkgdown to altdoc for documentation generation. Now using Quarto Website for documentation with native math equation support via MathJax.</li>
-<li>Removed pkgdown-specific configurations and workflows.</li>
-<li>Retained RevealJS multi-format support for Quarto vignettes and articles.</li>
-<li>Fixed index page rendering by switching from <code>index.md</code> to <code>index.qmd</code> to properly process Quarto include directive (<a href="https://github.com/d-morrison/rmb/issues/58">#58</a>)</li>
-<li>Switched from <code>pkgdown</code> to <code>altdoc</code> (<a href="https://github.com/d-morrison/rmb/issues/45">#45</a>)</li>
-<li>Updated lintr configuration to match serodynamics reference with enhanced linter rules</li>
-<li>PR preview comments now use <code>recreate: true</code> to ensure they always appear at the bottom of the PR conversation, preventing them from being hidden in collapsed sections (<a href="https://github.com/d-morrison/rmb/issues/31">#31</a>)</li>
-<li>Added RevealJS presentation format for Quarto vignettes and articles in pkgdown documentation. HTML pages now display an “Other Formats” section with links to slide versions (<a href="https://github.com/d-morrison/rmb/issues/29">#29</a>)</li>
+<li><p>The docs workflow installs the R package from <code>quarto-dev/quarto-r</code>, because <code>quarto-dev/quarto</code> has no R package and failed dependency resolution (<a href="https://github.com/Morrison-Lab/gha/issues/1137"><code>gha#1137</code></a>).</p></li>
+<li><p>The documentation check no longer fails when a newer <code>roxygen2</code> only rewrites the <code>Config/roxygen2/version</code> or <code>RoxygenNote</code> field in <code>DESCRIPTION</code>. It still fails on any other change to <code>DESCRIPTION</code>, <code>NAMESPACE</code>, or <code>man/</code>.</p></li>
+<li><p>Replaced hand-built Kaplan-Meier and linear-model diagnostic plots with package helpers (<code>survminer::ggsurvplot()</code> and <code>ggplot2::autoplot()</code>, with <code>{ggfortify}</code> supplying the S3 method) where available, while retaining consistent <code>ggplot2</code> styling across dataset vignettes.</p></li>
+<li><p>Replaced all 26 <code>{mermaid}</code> causal DAGs in dataset vignettes with R-rendered <a href="https://r-causal.github.io/ggdag/"><code>{ggdag}</code></a> plots for consistent, reproducible visualization. Added <code>ggdag</code> to <code>DESCRIPTION Suggests</code>.</p></li>
+<li><p>Bumped development version to <code>0.0.0.9018</code>.</p></li>
+<li><p>Added swimmer plots to all longitudinal dataset vignettes (<code>dataset-leuk.qmd</code>, <code>dataset-actg019.qmd</code>, <code>dataset-mira_hsv.qmd</code>, <code>dataset-sof2.qmd</code>, <code>dataset-hers_nodm_longitudinal.qmd</code>, <code>dataset-fecfat.qmd</code>) using the <a href="https://github.com/biostatsPMH/swimplot"><code>{swimplot}</code></a> package. Large cohorts are subsetted for legibility.</p></li>
+<li><p>Bumped development version to <code>0.0.0.9016</code>.</p></li>
+<li><p>Restructured all 26 dataset vignettes as mini-journal articles with four standard sections: Introduction, Methods, Results, and Discussion. Each article includes a dataset-specific causal DAG, targeted statistical analysis, and scientific interpretation anchored to the relevant RMB2e chapter.</p></li>
+<li><p>Corrected invalid DOI links in dataset metadata and dataset documentation for WCGS, MIRA, and SOF/SOF2.</p></li>
+<li><p>Bumped development version to <code>0.0.0.9015</code>.</p></li>
+<li><p>Expanded all dataset vignettes from a single generic model to an RMB2e workflow with interleaved prose and stepwise modeling sections (research question, EDA, specification, estimation, adequacy checks, inference, conclusions), organized by dataset.</p></li>
+<li><p>Added conceptual DAGs and updated tests to verify the new workflow structure across dataset vignettes.</p></li>
+<li><p>Bumped development version to <code>0.0.0.9014</code>.</p></li>
+<li><p>Added all dataset vignettes to the documentation website navigation and removed placeholder Quarto vignette/article files.</p></li>
+<li><p>Bumped development version to <code>0.0.0.9013</code>.</p></li>
+<li><p>Added dataset roxygen <code>Study design</code> blurbs for all packaged datasets and regenerated dataset Rd files.</p></li>
+<li><p>Bumped development version to <code>0.0.0.9012</code>.</p></li>
+<li><p>Updated documentation check workflow to configure Git safe.directory using <code>$GITHUB_WORKSPACE</code>.</p></li>
+<li><p>Updated spellcheck wordlist with dataset-domain terms used across Rd and vignette sources.</p></li>
+<li><p>Switched from pkgdown to altdoc for documentation generation. Now using Quarto Website for documentation with native math equation support via MathJax.</p></li>
+<li><p>Removed pkgdown-specific configurations and workflows.</p></li>
+<li><p>Retained RevealJS multi-format support for Quarto vignettes and articles.</p></li>
+<li><p>Fixed index page rendering by switching from <code>index.md</code> to <code>index.qmd</code> to properly process Quarto include directive (<a href="https://github.com/d-morrison/rmb/issues/58">#58</a>)</p></li>
+<li><p>Switched from <code>pkgdown</code> to <code>altdoc</code> (<a href="https://github.com/d-morrison/rmb/issues/45">#45</a>)</p></li>
+<li><p>Updated lintr configuration to match serodynamics reference with enhanced linter rules</p></li>
+<li><p>PR preview comments now use <code>recreate: true</code> to ensure they always appear at the bottom of the PR conversation, preventing them from being hidden in collapsed sections (<a href="https://github.com/d-morrison/rmb/issues/31">#31</a>)</p></li>
+<li><p>Added RevealJS presentation format for Quarto vignettes and articles in pkgdown documentation. HTML pages now display an “Other Formats” section with links to slide versions (<a href="https://github.com/d-morrison/rmb/issues/29">#29</a>)</p></li>
 </ul>
 </section>
 <section id="rmb-0.0.0.9000" class="level1">
