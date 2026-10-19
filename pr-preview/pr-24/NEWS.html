@@ -838,7 +838,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="rmb-development-version" class="level1">
 <h1>rmb (development version)</h1>
 <ul>
-<li><p>The docs workflow installs the R package from <code>quarto-dev/quarto-r</code>, because <code>quarto-dev/quarto</code> has no R package and failed dependency resolution (gha<a href="https://github.com/d-morrison/rmb/issues/1137">#1137</a>).</p></li>
+<li><p>The docs workflow installs the R package from <code>quarto-dev/quarto-r</code>, because <code>quarto-dev/quarto</code> has no R package and failed dependency resolution (<code>gha[#1137](https://github.com/d-morrison/rmb/issues/1137)</code>).</p></li>
 <li><p>The documentation check no longer fails when a newer <code>roxygen2</code> only rewrites the <code>Config/roxygen2/version</code> or <code>RoxygenNote</code> field in <code>DESCRIPTION</code>. It still fails on any other change to <code>DESCRIPTION</code>, <code>NAMESPACE</code>, or <code>man/</code>.</p></li>
 <li><p>Replaced hand-built Kaplan-Meier and linear-model diagnostic plots with package helpers (<code>survminer::ggsurvplot()</code> and <code>ggplot2::autoplot()</code>, with <code>{ggfortify}</code> supplying the S3 method) where available, while retaining consistent <code>ggplot2</code> styling across dataset vignettes.</p></li>
 <li><p>Replaced all 26 <code>{mermaid}</code> causal DAGs in dataset vignettes with R-rendered <a href="https://r-causal.github.io/ggdag/"><code>{ggdag}</code></a> plots for consistent, reproducible visualization. Added <code>ggdag</code> to <code>DESCRIPTION Suggests</code>.</p></li>
